@@ -10,6 +10,7 @@ def criar_tabelas():
     Rodada.createTable(ifNotExists=True)
 
 class Rodada(SQLObject):
+        
     jogo = StringCol()
     rodada = StringCol()
     data = StringCol()

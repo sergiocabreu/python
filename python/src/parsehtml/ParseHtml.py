@@ -2,53 +2,37 @@
 
 import urllib
 from bs4 import BeautifulSoup
+from bancodedados.entidades import Rodada
 
 
+def parse_no_banco():
+    url='http://www.cbf.com.br/competicoes/brasileiro-serie-a/tabela/2015#.V2rx6_krKCg'
 
-print("inicio")
-url='http://www.cbf.com.br/competicoes/brasileiro-serie-a/tabela/2015#.V2rx6_krKCg'
-#url = 'http://www.dicionariodoaurelio.com/'
-f = urllib.request.urlopen(url)
+    f = urllib.request.urlopen(url)
 
-print("recuperou url")
-
-html_doc = f.read()
-print("leu arquivo")
-
-soup = BeautifulSoup(html_doc,"html5lib")
-print("converteu para soup")
-
-
-#resultado = soup.find(attrs={'class':'table table-striped table-condensed visible-print'})
-
-tabela = soup.find(attrs={'class':'table table-striped table-condensed visible-print'})
-
-linhas  =  tabela.findAll("tr")
-
-for linha in linhas:    
-    colunas = linha.findAll('td')
-#    states=linha.findAll('th')
-    if len(colunas) == 8:
-        celula1 = colunas[0].find(text=True)
-        celula2 = colunas[1].find(text=True)
-        celula3 = colunas[2].find(text=True)
-        celula4 = colunas[3].find(text=True)    
-        celula5 = colunas[4].find(text=True)
-        celula6 = colunas[5].find(text=True)
-        celula7 = colunas[6].find(text=True)    
-        #celula8 = colunas[7].find(text=True)
+    html_doc = f.read()
     
-        print("Jogo: " + celula1)
-        print("Rodada: " + celula2)
-        print("Data: " + celula3)
-        print("Mandante: " + celula4)
-        print("Placar: " + celula5)
-        print("Visitante: " + celula6)
-        print("Estadio: " + celula7)
-        print("\n")
+    print("baixou")
 
+    soup = BeautifulSoup(html_doc,"html5lib")
 
+    tabela = soup.find(attrs={'class':'table table-striped table-condensed visible-print'})
 
-#print(soup.find('table'))
+    linhas  =  tabela.findAll("tr")
 
+    print("Inicio do for")
+    for linha in linhas:    
+        colunas = linha.findAll('td')
 
+        if len(colunas) == 8:
+            c1 = str(colunas[0].find(text=True))
+            c2 = str(colunas[1].find(text=True))
+            c3 = str(colunas[2].find(text=True))
+            c4 = str(colunas[3].find(text=True))
+            c5 = str(colunas[4].find(text=True))
+            c6 = str(colunas[5].find(text=True))
+            c7 = str(colunas[6].find(text=True))
+            
+            print(type(c1))
+            
+            Rodada(jogo=c1, rodada=c2,  data=c3, mandate=c4, placar=c5, visitante=c6, estadio=c7)
