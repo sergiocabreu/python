@@ -6,15 +6,15 @@ Created on 23 de jun de 2016
 from sqlobject import *
 
 
-def criar_tabelas():
-    Rodada.createTable(ifNotExists=True)
-
 class Rodada(SQLObject):
         
     jogo = StringCol()
     rodada = StringCol()
     data = StringCol()
-    mandate = StringCol()
+    mandante = StringCol()
     placar = StringCol()
     visitante = StringCol()
     estadio = StringCol()
+    
+def criar_tabelas():
+    Rodada.createTable(ifNotExists=True)

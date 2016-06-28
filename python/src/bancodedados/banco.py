@@ -19,3 +19,7 @@ def criar_banco():
     sqlhub.processConnection = connection
 
     entidades.criar_tabelas()
+    
+    
+def abrir_banco():
+    sqlhub.processConnection = connectionForURI(db_banco + db_diretorio + db_filename)    
