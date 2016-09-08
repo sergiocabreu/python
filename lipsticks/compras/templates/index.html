@@ -5,8 +5,19 @@
 		<title>Compras</title>
 	</head>
 	<body>
-		<h1>Bem vindo as compras</h1>
-		<a href="{% url 'exibir' perfil.id %}">{{ perfil.nome }}</a> / {{ perfil.email }}
+		<h1>Todas as compras</h1>
+
+		{%if compras_list %}
+			<ul>
+				{% for compra in compras_list%}
+					<a href="{% url 'compras_editar' compra.id %}">{{compra.id}} | {{ compra.nome_cliente }} | {{ compra.nome_produto}} </a><br>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>Sempre compras!</p>
+		{%endif%}
+
+		<a href="{% url 'compras_salvar' %}">Nova Compra</a>
 
 	</body>
 </html>

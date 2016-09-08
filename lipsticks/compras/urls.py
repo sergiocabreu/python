@@ -4,5 +4,6 @@ from compras import views as compras_views
 
 urlpatterns = [
     url(r'^$', compras_views.index, name='index'),
-    url(r'^compras/$', compras_views.compras, name='compras')
+    url(r'^compras/salvar$', compras_views.SalvarContaView.as_view(), name='compras_salvar'),
+    url(r'^compras/salvar/(?P<compras_id>\d+)$', compras_views.SalvarContaView.as_view(), name='compras_editar')
 ]

@@ -7,5 +7,16 @@
 	<body>
 		<h1>Nova Compra</h1>
 
+		<form action="{% url 'compras_salvar' %}" method="post">
+			{%csrf_token%}
+
+			<input id="id" type="hidden" name="id" value="{{compra.id}}">
+
+			<input id="id_nome_cliente" type="text" name="nome_cliente" placeholder="Nome *" value="{{compra.nome_cliente}}" required autofocus>
+
+			<input id="id_nome_produto" type="text" name="nome_produto" placeholder="Produto *" value="{{compra.nome_produto}}" required autofocus>
+
+			<button type="submit">Salvar</button>
+		</form>
 	</body>
 </html>
