@@ -14,10 +14,11 @@
 				{% endfor %}
 			</ul>
 		{% else %}
-			<p>Sempre compras!</p>
+			<p>Sem compras! Bora trabalhar!!!</p>
 		{%endif%}
 
-		<a href="{% url 'compras_salvar' %}">Nova Compra</a>
+		<a href="{% url 'compras_novo' %}">Nova Compra</a>
+		<a href="{% url 'clientes' %}">Clientes</a>
 
 	</body>
 </html>

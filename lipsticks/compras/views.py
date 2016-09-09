@@ -6,6 +6,9 @@ from compras.models import Compras
 def index(request):
 	return render(request,'index.html', {'compras_list': Compras.objects.all()})
 
+def novo(request):
+	return render(request,'compras.html')	
+
 class SalvarContaView(View):	
 	template_name = 'compras.html'
 
