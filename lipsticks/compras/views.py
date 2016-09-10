@@ -22,7 +22,7 @@ class SalvarContaView(View):
 
 		id = dados_form['id']
 
-		if id :
+		if id:
 			compras_para_atualizar = Compras.objects.get(id=id)
 			compras_para_atualizar.nome_cliente = dados_form['nome_cliente']
 			compras_para_atualizar.nome_produto = dados_form['nome_produto']

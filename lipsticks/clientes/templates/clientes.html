@@ -5,19 +5,19 @@
 		<title>Compras</title>
 	</head>
 	<body>
-		<h1>Nova Compra</h1>
+		<h1>Novo Cliente</h1>
 
-		<form action="{% url 'compras_salvar' %}" method="post">
+		<form action="{% url 'clientes_salvar' %}" method="post">
 			{%csrf_token%}
 
-			<input id="id" type="hidden" name="id" value="{{compra.id}}">
+			<input id="id" type="hidden" name="id" value="{{cliente.id}}">
 
-			<input id="id_nome_cliente" type="text" name="nome_cliente" placeholder="Nome *" value="{{compra.nome_cliente}}" required autofocus>
+			<input id="id_nome" type="text" name="nome" placeholder="Nome *" value="{{cliente.nome}}" required autofocus>
 
-			<input id="id_nome_produto" type="text" name="nome_produto" placeholder="Produto *" value="{{compra.nome_produto}}" required autofocus>
+			<input id="id_contato" type="text" name="contato" placeholder="Contato *" value="{{cliente.contato}}">
 
 			<button type="submit">Salvar</button>
-			<a href="{% url 'index' %}">Voltar</a>
+			<a href="{% url 'clientes' %}">Voltar</a>
 		</form>
 	</body>
 </html>

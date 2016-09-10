@@ -10,14 +10,14 @@
 		{%if clientes_list %}
 			<ul>
 				{% for cliente in clientes_list%}
-					<a href="{% url 'cliente_editar' cliente.id %}">{{cliente.id}} | {{ cliente.nome }} | {{ cliente.contato}} </a><br>
+					<a href="{% url 'clientes_editar' cliente.id %}">{{cliente.id}} | {{ cliente.nome }} | {{ cliente.contato}} </a><br>
 				{% endfor %}
 			</ul>
 		{% else %}
 			<p>Sem clientes!</p>
 		{%endif%}
 
-		<a href="{% url 'clientes_novo' %}">Novo Clientes</a>
+		<a href="{% url 'clientes_novo' %}">Novo Cliente</a>
 		<a href="{% url 'index' %}">Inicio</a>
 
 	</body>
