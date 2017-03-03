@@ -1,3 +1,0 @@
-SQLObject
-BeautifulSoup4
-html5lib
